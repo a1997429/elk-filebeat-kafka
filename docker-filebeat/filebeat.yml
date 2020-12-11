@@ -1,0 +1,14 @@
+filebeat.inputs:
+  - type: log
+    paths:
+    # 日志文件目录
+      - /data/elk-logs/*/*.log
+    fields_under_root: true
+#output.elasticsearch:
+#  hosts: ["http://192.168.1.115:9200"] 
+#  username: "elastic"
+#  password: "changeme"
+output.kafka:
+  enabled: true
+  hosts: ["192.168.1.5:9092"]
+  topic: logstash-log
